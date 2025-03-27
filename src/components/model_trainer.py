@@ -27,7 +27,7 @@ class ModelTrainer:
     def __init__(self):
         self.model_trainer_config = ModelTrainerConfig()
 
-    def initiate_model_trainer(self,train_array,test_array,preprocessor_path):
+    def initiate_model_trainer(self,train_array,test_array):
         try:
             logging.info("Split training and test data set")
             X_train,y_train,X_test,y_test = (
@@ -72,8 +72,6 @@ class ModelTrainer:
 
             r2_square = r2_score(y_test,predicted)
             return r2_square
-
-
 
         except Exception as e:
             raise CustomException(e,sys)
